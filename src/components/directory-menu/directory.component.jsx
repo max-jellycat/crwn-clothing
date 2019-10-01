@@ -27,18 +27,18 @@ class Directory extends Component {
           linkUrl: 'shop/sneakers'
         },
         {
-          title: 'women',
+          title: 'women\'s',
           imageUrl: 'https://i.ibb.co/GCCdy8t/womens.png',
           size: 'large',
           id: 4,
-          linkUrl: 'shop/women'
+          linkUrl: 'shop/womens'
         },
         {
-          title: 'men',
+          title: 'men\'s',
           imageUrl: 'https://i.ibb.co/R70vBrQ/men.png',
           size: 'large',
           id: 5,
-          linkUrl: 'shop/men'
+          linkUrl: 'shop/mens'
         }
       ]
     }
