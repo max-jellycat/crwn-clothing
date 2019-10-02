@@ -33,11 +33,11 @@ class App extends Component {
   render() {
     return (
       <>
-        <Header />
+        <Header currentUser={this.state.currentUser} />
         <Switch>
           <Route exact path='/' component={HomePage} />
           <Route path='/shop' component={ShopPage} />
-          <Route path='/sign-in' component={SignInUpPage} />
+          <Route path='/signin' component={SignInUpPage} />
         </Switch>
       </>
     )
