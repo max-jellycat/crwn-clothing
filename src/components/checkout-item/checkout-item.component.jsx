@@ -10,7 +10,10 @@ const CheckoutItem = ({ item, clearItem, addItem, removeItem }) => {
   return (
     <article className='checkout-item'>
       <div className='image-container'>
-        <img src={imageUrl} alt={name} />
+        <div
+          className='image'
+          style={{ backgroundImage: `url(${imageUrl})` }}
+        />
       </div>
       <span className='name'>{name}</span>
       <span className='quantity'>
