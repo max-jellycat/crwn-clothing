@@ -62,9 +62,12 @@ export class SignIn extends Component {
           />
 
           <div className='buttons'>
-            <CustomButton type='submit'>Sign in</CustomButton>
+            <CustomButton type='submit'>
+              <span>Sign in</span>
+              <i className="fas fa-sign-in"></i>
+            </CustomButton>
             <CustomButton onClick={signInWithGoogle} isGoogleSignIn>
-              Sign in with Google
+              <span>Sign in with</span><i className="icon fab fa-google"></i>
             </CustomButton>
           </div>
         </form>

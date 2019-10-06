@@ -47,7 +47,10 @@ const CheckoutPage = ({ cartItems, total, history }) => (
     ) : (
       <>
         <span className='empty-message'>No items in your cart yet...</span>
-        <CustomButton onClick={() => history.push('/shop')}>Back to shop</CustomButton>
+        <CustomButton onClick={() => history.push('/shop')}>
+          <span>Back to shop</span>
+          <i className='fas fa-store'></i>
+        </CustomButton>
       </>
     )}
   </div>

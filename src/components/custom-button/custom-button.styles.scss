@@ -20,6 +20,7 @@ $google-blue-dark: #375ae8;
   border: 1px solid black;
   display: flex;
   justify-content: center;
+  align-items: center;
 
   &:hover {
     background-color: white;
@@ -44,6 +45,15 @@ $google-blue-dark: #375ae8;
     &:hover {
       background-color: black;
       color: white;
+    }
+  }
+
+  span {
+    margin-right: 10px;
+
+    &:only-child {
+
+      margin-right: 0;
     }
   }
 }

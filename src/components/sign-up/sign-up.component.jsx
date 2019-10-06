@@ -85,7 +85,10 @@ class SignUp extends Component {
             onChange={this.handleChange}
             required
           />
-          <CustomButton type='submit'>Sign up</CustomButton>
+          <CustomButton type='submit'>
+            <span>Sign up</span>
+            <i className="fas fa-user-plus"></i>
+          </CustomButton>
         </form>
       </div>
     )

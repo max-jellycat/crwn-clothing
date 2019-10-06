@@ -30,7 +30,8 @@ const StripeCheckoutButton = ({ price, children, dispatch }) => {
       ComponentClass='a'
     >
       <CustomButton>
-        Pay Now
+        <span>Pay Now</span>
+        <i className="fas fa-credit-card" />
       </CustomButton>
     </StripeCheckout>
   )
