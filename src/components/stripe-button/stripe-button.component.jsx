@@ -7,9 +7,14 @@ import CustomButton from '../../components/custom-button/custom-button.component
 const dotenv = require('dotenv')
 dotenv.config()
 
+let stripePublishableKey
+process.env.NODE_ENV !== 'production'
+  ? (stripePublishableKey = process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY)
+  : (stripePublishableKey = process.env.STRIPE_PUBLISHABLE_KEY)
+
 const StripeCheckoutButton = ({ price, children, dispatch }) => {
   const priceForStripe = price * 100
-  const publishableKey = process.env.STRIPE_PUBLISHABLE_KEY
+  const publishableKey = stripePublishableKey
 
   const onToken = token => {
     console.log(token)
