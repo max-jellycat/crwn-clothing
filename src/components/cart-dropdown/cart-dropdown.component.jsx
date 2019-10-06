@@ -11,19 +11,20 @@ import './cart-dropdown.styles.scss'
 import CartItem from '../cart-item/cart-item.component'
 
 const CartDropdown = ({ items, itemsTotalPrice, dispatch, history }) => {
+
   return (
     <div className='cart-dropdown'>
-      <div className="cart-items">
-        {
-          items.length
-            ? items.map(item => <CartItem key={item.id} item={item} />)
-            : <span className='empty-message'>No items in your cart yet.</span>
-        }
-      </div>
-      <CustomButton onClick={() => {
-        history.push('/checkout')
-        dispatch(toggleCartHidden())
-      }}>Go to checkout ({itemsTotalPrice}€)</CustomButton>
+      {items.length ? (
+        <>
+          <div className="cart-items">
+            {items = items.map(item => <CartItem key={item.id} item={item} />)}
+          </div>
+          <CustomButton onClick={() => {
+            history.push('/checkout')
+            dispatch(toggleCartHidden())
+          }}>Go to checkout ({itemsTotalPrice}€)</CustomButton>
+        </>
+      ) : <span className='empty-message'>No items in your cart yet...</span>}
     </div>
   )
 }

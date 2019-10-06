@@ -29,4 +29,20 @@
     font-size: 36px;
     text-transform: uppercase;
   }
+
+  a {
+    margin-left: auto;
+  }
+
+  .test-warning {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 24px;
+    color: red;
+  }
+
+  .empty-message {
+    font-size: 24px;
+    margin: 50px auto;
+  }
 }
