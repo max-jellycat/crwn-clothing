@@ -7,7 +7,7 @@ import CustomButton from '../../components/custom-button/custom-button.component
  
 const StripeCheckoutButton = ({ price, children, dispatch }) => {
   const priceForStripe = price * 100
-  const publishableKey = 'pk_test_8YwWOL4CFEbyuGguecuI86tV00AR1NyPWP'
+  const publishableKey = process.env.STRIPE_PUBLISHABLE_KEY
 
   const onToken = token => {
     console.log(token)
