@@ -4,7 +4,9 @@ import { connect } from 'react-redux'
 import { emptyCart } from '../../redux/cart/cart.actions'
 import StripeCheckout from 'react-stripe-checkout'
 import CustomButton from '../../components/custom-button/custom-button.component'
- 
+const dotenv = require('dotenv')
+dotenv.config()
+
 const StripeCheckoutButton = ({ price, children, dispatch }) => {
   const priceForStripe = price * 100
   const publishableKey = process.env.STRIPE_PUBLISHABLE_KEY
