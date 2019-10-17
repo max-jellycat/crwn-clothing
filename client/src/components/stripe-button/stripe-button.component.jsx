@@ -1,23 +1,32 @@
 import React from 'react'
+import axios from 'axios'
 import { connect } from 'react-redux'
-
 import { emptyCart } from '../../redux/cart/cart.actions'
 import StripeCheckout from 'react-stripe-checkout'
 import CustomButton from '../../components/custom-button/custom-button.component'
 
-let stripePublishableKey
-process.env.NODE_ENV !== 'production'
-  ? (stripePublishableKey = process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY)
-  : (stripePublishableKey = process.env.STRIPE_PUBLISHABLE_KEY)
-
 const StripeCheckoutButton = ({ price, children, dispatch }) => {
   const priceForStripe = price * 100
-  const publishableKey = stripePublishableKey
 
   const onToken = token => {
-    console.log(token)
-    alert('Payment Successful')
-    dispatch(emptyCart())
+    axios({
+      url: 'payment',
+      method: 'post',
+      data: {
+        amount: priceForStripe,
+        token,
+      },
+    })
+      .then(res => {
+        alert('Payment successful.')
+        dispatch(emptyCart())
+      })
+      .catch(err => {
+        console.error(err)
+        alert(
+          'There was an issue with your payment. Please make sure to use provided payment credentials.'
+        )
+      })
   }
 
   return (
@@ -31,12 +40,12 @@ const StripeCheckoutButton = ({ price, children, dispatch }) => {
       amount={priceForStripe}
       panelLabel='Pay Now'
       token={onToken}
-      stripeKey={publishableKey}
+      stripeKey='pk_test_8YwWOL4CFEbyuGguecuI86tV00AR1NyPWP'
       ComponentClass='a'
     >
       <CustomButton>
         <span>Pay Now</span>
-        <i className="fas fa-credit-card" />
+        <i className='fas fa-credit-card' />
       </CustomButton>
     </StripeCheckout>
   )
